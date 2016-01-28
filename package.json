@@ -1,0 +1,42 @@
+{
+  "name": "Splitter",
+  "version": "0.0.1",
+  "description": "Check splitter web-app.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rackt/redux.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rackt/redux/issues"
+  },
+  "dependencies": {
+    "css-loader": "^0.23.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
+    "material-ui": "^0.14.3",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-redux": "^4.0.6",
+    "react-tap-event-plugin": "^0.2.1",
+    "redux": "^3.0.6",
+    "redux-thunk": "^1.0.3",
+    "redux-undo": "^0.6.0",
+    "style-loader": "^0.13.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.1.4",
+    "babel-plugin-react-transform": "^1.1.0",
+    "expect": "^1.6.0",
+    "express": "^4.13.3",
+    "node-libs-browser": "^0.5.2",
+    "react-transform-hmr": "^1.0.0",
+    "webpack": "^1.9.11",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.2.0"
+  }
+}
