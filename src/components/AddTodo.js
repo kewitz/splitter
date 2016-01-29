@@ -3,13 +3,13 @@ import { TextField, FlatButton } from 'material-ui/lib';
 
 export default class AddTodo extends Component {
   handleSubmit(e) {
-    e.preventDefault()
-    const node = this.refs.pay
-    const value = node.getValue().trim()
-    if (value) {
-      this.props.onAddSubmit(value)
-      node.setValue('');
+    if (e) e.preventDefault();
+    const node = this.refs.pay;
+    const val = parseFloat(node.getValue().trim().replace(",","."), 10);
+    if (val.toString() != "NaN") {
+      this.props.onAddSubmit(val);
     }
+    node.setValue('');
   }
 
   render() {
