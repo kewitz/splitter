@@ -13,7 +13,10 @@ class App extends Component {
     const { dispatch, payments } = this.props
     return (
       <div>
-        <AppBar title="Splitter"/>
+        <AppBar
+        title="Splitter"
+        iconElementLeft={<IconButton iconClassName="material-icons" onClick={this.props.onClick}>attach_money</IconButton>}
+        />
         <div className="body">
           <AddTodo
             onAddSubmit={value => dispatch(addPayment(value))} />

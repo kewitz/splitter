@@ -7,6 +7,7 @@ import Avatar from 'material-ui/lib/avatar';
 import FontIcon from 'material-ui/lib/font-icon';
 import Colors from 'material-ui/lib/styles/colors';
 
+
 // TODO: Usar HUE para distribuir as cores do espectro para todos os usuários.
 const colorArray = 'red pink purple deepPurple lightBlue indigo cyan teal green lime'
   .split(' ').map((x) => x+'A200')
@@ -17,7 +18,7 @@ class Payment extends Component {
     return (
       <ListItem
         leftAvatar={<Avatar backgroundColor={color} icon={<FontIcon className="material-icons">face</FontIcon>} />}
-        onClick={this.props.onClick}
+        rightIcon={<FontIcon className="material-icons" onClick={this.props.onClick}>remove_circle</FontIcon>}
         primaryText={"$ "+this.props.value.toFixed(2)}
       />
     )
