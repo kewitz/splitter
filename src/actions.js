@@ -18,6 +18,11 @@ export function delPayment(id) {
   }
 }
 
+export function makeColors(index) {
+  const deg = 360/paymentId;
+  return "hsl("+(deg*index).toFixed(0, 10)+", 80%, 70%)";
+}
+
 export function solveActions(people) {
   console.log(JSON.stringify(people))
   const sum = people.reduce((sum, cur) => sum + cur.value, 0);
@@ -33,12 +38,9 @@ export function solveActions(people) {
     const payers = balances.filter(p => p.value > 0);
     const receivers = balances.filter(p => p.value < 0);
 
-
     return payers.map(payer => {
-
-      const receiver = receivers.slice(-1)[0];
       let nextBalances = [...balances];
-
+      const receiver = receivers.slice(-1)[0];
       const action = {
         from: payer.id,
         to: receiver.id,
@@ -55,7 +57,6 @@ export function solveActions(people) {
       nextBalances = nextBalances.filter(p => p.value != 0);
 
       return generatePossibilities({ balances: nextBalances, actions: nextActions } )
-
     });
 
   };

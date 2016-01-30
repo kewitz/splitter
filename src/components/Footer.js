@@ -8,11 +8,9 @@ import Avatar from 'material-ui/lib/avatar';
 import Colors from 'material-ui/lib/styles/colors';
 import Divider from 'material-ui/lib/divider';
 
-const colorArray = 'red pink purple deepPurple lightBlue indigo cyan teal green lime'
-  .split(' ').map((x) => x+'A200')
-
 export default class Footer extends Component {
   render() {
+    const colors = this.props.colors;
     let payments = this.props.payments.length;
     let total = 0, avg = 0;
     let actions = [];
@@ -30,8 +28,8 @@ export default class Footer extends Component {
           secondaryText={"$ " + avg.toFixed(2) + " each."}/>
         {actions.map(a =>
           <ListItem
-            leftAvatar={<Avatar backgroundColor={Colors[colorArray[a.from]]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
-            rightAvatar={<Avatar backgroundColor={Colors[colorArray[a.to]]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
+            leftAvatar={<Avatar backgroundColor={colors[a.from]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
+            rightAvatar={<Avatar backgroundColor={colors[a.to]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
             primaryText={ "pays $ "+ a.amount.toFixed(2) + " to " }
             style={{textAlign: "center"}}
           />

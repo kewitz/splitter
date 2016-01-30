@@ -9,15 +9,14 @@ import Colors from 'material-ui/lib/styles/colors';
 
 
 // TODO: Usar HUE para distribuir as cores do espectro para todos os usuários.
-const colorArray = 'red pink purple deepPurple lightBlue indigo cyan teal green lime'
-  .split(' ').map((x) => x+'A200')
+// const colorArray = 'red pink purple deepPurple lightBlue indigo cyan teal green lime'
+//   .split(' ').map((x) => x+'A200')
 
 class Payment extends Component {
   render() {
-    let color = Colors[colorArray[this.props.id]];
     return (
       <ListItem
-        leftAvatar={<Avatar backgroundColor={color} icon={<FontIcon className="material-icons">face</FontIcon>} />}
+        leftAvatar={<Avatar backgroundColor={this.props.color} icon={<FontIcon className="material-icons">face</FontIcon>} />}
         rightIcon={<FontIcon className="material-icons" onClick={this.props.onClick}>remove_circle</FontIcon>}
         primaryText={"$ "+this.props.value.toFixed(2)}
       />
