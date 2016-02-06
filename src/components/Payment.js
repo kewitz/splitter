@@ -4,6 +4,7 @@ import { delPayment } from '../actions';
 
 import ListItem from 'material-ui/lib/lists/list-item';
 import Avatar from 'material-ui/lib/avatar';
+import Badge from 'material-ui/lib/badge';
 import FontIcon from 'material-ui/lib/font-icon';
 import Colors from 'material-ui/lib/styles/colors';
 
@@ -16,7 +17,11 @@ class Payment extends Component {
   render() {
     return (
       <ListItem
-        leftAvatar={<Avatar backgroundColor={this.props.color} icon={<FontIcon className="material-icons">face</FontIcon>} />}
+        leftAvatar={
+          <Avatar backgroundColor={this.props.color}>
+            {this.props.id}
+          </Avatar>
+        }
         rightIcon={<FontIcon className="material-icons" onClick={this.props.onClick}>remove_circle</FontIcon>}
         primaryText={"$ "+this.props.value.toFixed(2)}
       />

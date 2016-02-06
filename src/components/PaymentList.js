@@ -11,17 +11,15 @@ import ListItem from 'material-ui/lib/lists/list-item';
 
 export default class PaymentList extends Component {
   render() {
-    const colors = this.props.payments.map(p => makeColors(p.id));
-    console.log(colors)
     return (
       <div>
         <List subheader="Payments">
           {this.props.payments.map(pay =>
-            <Payment {...pay} key={pay.id} color={colors[pay.id]} />
+            <Payment {...pay} key={pay.id} color={makeColors(pay.id)} />
           )}
         </List>
         <Divider inset={true}/>
-        <Footer payments={this.props.payments} colors={colors}/>
+        <Footer payments={this.props.payments}/>
       </div>
     )
   }

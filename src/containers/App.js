@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <AppBar
-        title="Splitter"
+        title="Split yo'billz!"
         iconElementLeft={<IconButton iconClassName="material-icons" onClick={this.props.onClick}>attach_money</IconButton>}
         />
         <div className="body">

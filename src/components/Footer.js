@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { solveActions } from '../actions';
+import { solveActions, makeColors } from '../actions';
 
 import List from 'material-ui/lib/lists/list';
 import FontIcon from 'material-ui/lib/font-icon';
@@ -10,7 +10,6 @@ import Divider from 'material-ui/lib/divider';
 
 export default class Footer extends Component {
   render() {
-    const colors = this.props.colors;
     let payments = this.props.payments.length;
     let total = 0, avg = 0;
     let actions = [];
@@ -26,14 +25,14 @@ export default class Footer extends Component {
           leftIcon={<FontIcon className="material-icons">done</FontIcon>}
           primaryText={"$ "+ total.toFixed(2) + " total."}
           secondaryText={"$ " + avg.toFixed(2) + " each."}/>
-        {actions.map(a =>
-          <ListItem
-            leftAvatar={<Avatar backgroundColor={colors[a.from]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
-            rightAvatar={<Avatar backgroundColor={colors[a.to]} icon={<FontIcon className="material-icons">face</FontIcon>} />}
+          {actions.map(a =>
+            <ListItem
+            leftAvatar={<Avatar backgroundColor={makeColors(a.from)}>{a.from}</Avatar>}
+            rightAvatar={<Avatar backgroundColor={makeColors(a.to)}>{a.to}</Avatar>}
             primaryText={ "pays $ "+ a.amount.toFixed(2) + " to " }
             style={{textAlign: "center"}}
-          />
-        )}
+            />
+          )}
       </List>
     )
   }
