@@ -25,7 +25,7 @@ class App extends Component {
         <AppBar
         titleStyle={{textAlign: "center"}}
         title={
-          <img src="/logo.svg" style={{
+          <img src="logo.svg" style={{
             marginBottom: "-1.5rem",
             height: "4rem",
             verticalAlign: "baseline"}}/>}

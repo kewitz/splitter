@@ -8,11 +8,11 @@ conf = {
   output: {
     path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: ENV },
+      'process.env': { NODE_ENV: JSON.stringify(ENV) },
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -41,5 +41,5 @@ if (ENV == 'developer') {
   console.log('[Webpack] Pushing production plugins...')
   conf.plugins.push(new webpack.optimize.UglifyJsPlugin())
 }
-console.log(JSON.stringify(conf))
+
 module.exports = conf
