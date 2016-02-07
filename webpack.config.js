@@ -1,26 +1,22 @@
+const ENV = process.env.NODE_ENV || 'developer'
+console.log("Webpack on %s mode.", ENV)
 var path = require('path')
 var webpack = require('webpack')
 
-module.exports = {
-  devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+conf = {
+  entry: [ './src/index' ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
   plugins: [
-    // new webpack.DefinePlugin({
-    //   'process.env': { NODE_ENV: JSON.stringify('production') },
-    // }),
+    new webpack.DefinePlugin({
+      'process.env': { NODE_ENV: ENV },
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    // new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [
@@ -35,3 +31,15 @@ module.exports = {
     ]
   }
 }
+
+if (ENV == 'developer') {
+  console.log('[Webpack] Pushing dev plugins...')
+  conf.entry.push('webpack-hot-middleware/client')
+  conf.plugins.push(new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin())
+  conf.devtool = 'cheap-module-eval-source-map'
+} else if (ENV == 'production') {
+  console.log('[Webpack] Pushing production plugins...')
+  conf.plugins.push(new webpack.optimize.UglifyJsPlugin())
+}
+console.log(JSON.stringify(conf))
+module.exports = conf

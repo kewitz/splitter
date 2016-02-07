@@ -24,15 +24,17 @@ export default class Footer extends Component {
         <ListItem
           leftIcon={<FontIcon className="material-icons">done</FontIcon>}
           primaryText={"$ "+ total.toFixed(2) + " total."}
-          secondaryText={"$ " + avg.toFixed(2) + " each."}/>
-          {actions.map(a =>
-            <ListItem
-            leftAvatar={<Avatar backgroundColor={makeColors(a.from)}>{a.from}</Avatar>}
-            rightAvatar={<Avatar backgroundColor={makeColors(a.to)}>{a.to}</Avatar>}
-            primaryText={ "pays $ "+ a.amount.toFixed(2) + " to " }
-            style={{textAlign: "center"}}
-            />
-          )}
+          secondaryText={"$ " + avg.toFixed(2) + " each."}
+          />
+        {actions.map((a, i) =>
+          <ListItem
+          key={i}
+          leftAvatar={<Avatar backgroundColor={makeColors(a.from)}>{a.from}</Avatar>}
+          rightAvatar={<Avatar backgroundColor={makeColors(a.to)}>{a.to}</Avatar>}
+          primaryText={ "pays $ "+ a.amount.toFixed(2) + " to " }
+          style={{textAlign: "center"}}
+          />
+        )}
       </List>
     )
   }
@@ -40,6 +42,6 @@ export default class Footer extends Component {
 
 Footer.propTypes = {
   payments: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired
+    value: PropTypes.number.isRequired
   }).isRequired).isRequired
 }

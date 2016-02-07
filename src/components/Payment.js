@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 Payment.propTypes = {
   onClick: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 }
 
 export default connect(null, mapDispatchToProps)(Payment)

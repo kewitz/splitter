@@ -1,14 +1,10 @@
-export const PAYMENT_ADD = 'PAYMENT_ADD'
-export const PAYMENT_DEL = 'PAYMENT_DEL'
-
-
 let paymentIds = []
 export function addPayment(value) {
   const i = paymentIds.slice(-1)[0]+1 || 0;
   paymentIds.push(i);
   return {
     id: i,
-    type: PAYMENT_ADD,
+    type: 'PAYMENT_ADD',
     value
   }
 }
@@ -16,7 +12,7 @@ export function addPayment(value) {
 export function delPayment(id) {
   paymentIds = paymentIds.filter(i => i != id);
   return {
-    type: PAYMENT_DEL,
+    type: 'PAYMENT_DEL',
     id
   }
 }

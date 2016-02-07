@@ -8,14 +8,28 @@ import AddTodo from '../components/AddTodo'
 import PaymentList from '../components/PaymentList'
 import Footer from '../components/Footer'
 
+import MyRawTheme from '../style/theme';
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+
 class App extends Component {
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
+    };
+  }
+
   render() {
     const { dispatch, payments } = this.props
     return (
       <div>
         <AppBar
-        title="Split yo'billz!"
-        iconElementLeft={<IconButton iconClassName="material-icons" onClick={this.props.onClick}>attach_money</IconButton>}
+        titleStyle={{textAlign: "center"}}
+        title={
+          <img src="/logo.svg" style={{
+            marginBottom: "-1.5rem",
+            height: "4rem",
+            verticalAlign: "baseline"}}/>}
+        showMenuIconButton={false}
         />
         <div className="body">
           <AddTodo
@@ -27,10 +41,14 @@ class App extends Component {
   }
 }
 
+App.childContextTypes = {
+  muiTheme: PropTypes.object,
+}
+
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   payments: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired
+    value: PropTypes.number.isRequired
   }).isRequired).isRequired,
 }
 

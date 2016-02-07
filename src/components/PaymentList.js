@@ -27,6 +27,6 @@ export default class PaymentList extends Component {
 
 PaymentList.propTypes = {
   payments: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string.isRequired
+    value: PropTypes.number.isRequired
   }).isRequired).isRequired
 }
