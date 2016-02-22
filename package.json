@@ -1,18 +1,18 @@
 {
-  "name": "Splitter",
+  "name": "Split yo'Billz",
   "version": "0.0.1",
-  "description": "Check splitter web-app.",
+  "description": "Bill splitter web-app.",
   "scripts": {
     "start": "node server.js",
     "build": "NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rackt/redux.git"
+    "url": "https://github.com/kewitz/splitter.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rackt/redux/issues"
+    "url": "https://github.com/kewitz/splitter/issues"
   },
   "dependencies": {
     "css-loader": "^0.23.1",

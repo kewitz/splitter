@@ -4,7 +4,7 @@ import { ActionCreators } from 'redux-undo'
 import { AppBar, FontIcon, IconButton } from 'material-ui/lib';
 
 import { addPayment, delPayment } from '../actions'
-import AddTodo from '../components/AddTodo'
+import AddPayment from '../components/AddPayment'
 import PaymentList from '../components/PaymentList'
 import Footer from '../components/Footer'
 
@@ -32,7 +32,7 @@ class App extends Component {
         showMenuIconButton={false}
         />
         <div className="body">
-          <AddTodo
+          <AddPayment
             onAddSubmit={value => dispatch(addPayment(value))} />
           <PaymentList payments={payments} />
         </div>
