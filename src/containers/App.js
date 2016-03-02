@@ -34,7 +34,7 @@ class App extends Component {
         <div className="body">
           <AddPayment
             onAddSubmit={value => dispatch(addPayment(value))} />
-          <PaymentList payments={payments} />
+          {payments.length > 0 ? <PaymentList payments={payments} /> : <br/> }
         </div>
       </div>
     )
